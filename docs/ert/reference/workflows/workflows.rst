@@ -90,11 +90,13 @@ the GUI, or by terminating an experiment that is executing a hooked workflow.
 For an external workflow job this is straightforward: the invoked process is
 terminated.
 
-For an internal workflow job, cancellation is cooperative. Calling
-:code:`cancel()` only records that cancellation was requested; nothing
-forcibly interrupts a running :code:`run()` method. A job that does not
-check for this will run to completion regardless of the user's request.
-Jobs that loop over realizations or ensembles should check
+For an internal workflow job, cancellation is *cooperative*: calling
+:code:`cancel()` immediately unblocks the caller (e.g. the GUI or CLI) and
+records that cancellation was requested, but it does not forcibly interrupt
+a running :code:`run()` method. It is up to the job itself to notice the
+request and stop early. A job that never checks for this will keep running
+to completion in the background, even though the UI reports it as
+cancelled. Jobs that loop over realizations or ensembles should check
 :code:`self.isCancelled()` between iterations and return early:
 
 .. code-block:: python
