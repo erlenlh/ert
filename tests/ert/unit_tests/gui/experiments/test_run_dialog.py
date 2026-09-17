@@ -42,7 +42,7 @@ from ert.gui.experiments.multiple_data_assimilation_panel import (
 )
 from ert.gui.experiments.view.realization import RealizationWidget
 from ert.gui.experiments.view.runpath_progress_widget import RunpathProgressWidget
-from ert.gui.experiments.view.workflow_log import WorkflowLogWidget
+from ert.gui.experiments.view.workflow_log_widget import WorkflowLogWidget
 from ert.gui.main import GUILogHandler, _setup_main_window
 from ert.gui.tools.file import FileDialog
 from ert.run_models import (

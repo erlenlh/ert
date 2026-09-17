@@ -4,7 +4,7 @@ from uuid import uuid4
 import pytest
 
 from ert.gui.experiments.view import WorkflowLogWidget
-from ert.gui.experiments.view.workflow_log import (
+from ert.gui.experiments.view.workflow_log_widget import (
     NO_ITERATION_LABEL,
     NO_OUTPUT_PLACEHOLDER,
 )
